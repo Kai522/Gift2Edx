@@ -1,0 +1,556 @@
+// question: 0  name: Switch category to $course$/預設1062Python程式設計與應用[2163]/Programming Basics/Logic
+$CATEGORY: $course$/預設1062Python程式設計與應用[2163]/Programming Basics/Logic
+
+::logic op::[html]<pre>age\=21\nname\='John'\ngrade \= [88,90,100]\n</pre>\n<p>連接以下邏輯運算的結果</p>{
+	=<p>age &lt;&gt; 20</p> -> ERROR
+	=<p>age &gt;\= 20</p> -> True
+	=<p>age \=\= 21 and name \=\='John'</p> -> True
+	=<p>(age &lt; 20) or (100 in grade)</p> -> True
+	=<p>age \=\= 21 and 100 not in grade</p> -> False
+	=<p>name is 'John'</p> -> True
+	=<p>grade \=\= [88,90,100]</p> -> True
+	=<p>grade is [88,90,100]</p> -> False
+}
+
+// question: 1107599  name: logic op
+::logic op::[html]<pre>age\=21\nname\='John'\ngrade \= [88,90,100]\n</pre>\n<p>連接以下邏輯運算的結果</p>{
+	=<p>age &lt;&gt; 20</p> -> ERROR
+	=<p>age &gt;\= 20</p> -> True
+	=<p>age \=\= 21 and name \=\='John'</p> -> True
+	=<p>(age &lt; 20) or (100 in grade)</p> -> True
+	=<p>age \=\= 21 and 100 not in grade</p> -> False
+	=<p>name is 'John'</p> -> True
+	=<p>grade \=\= [88,90,100]</p> -> True
+	=<p>grade is [88,90,100]</p> -> False
+}
+
+
+// question: 0  name: Switch category to $course$/預設1062Python程式設計與應用[2163]/Pandas
+$CATEGORY: $course$/預設1062Python程式設計與應用[2163]/Pandas
+
+
+// question: 1106593  name: dataframe basic
+
+
+// question: 1106588  name: dict -> pandas
+
+
+// question: 0  name: Switch category to $course$/預設1062Python程式設計與應用[2163]/Programming Basics/arithmetic operation
+$CATEGORY: $course$/預設1062Python程式設計與應用[2163]/Programming Basics/arithmetic operation
+
+
+// question: 1107255  name: math.ceil; sqrt
+
+
+// question: 0  name: Switch category to $course$/預設1062Python程式設計與應用[2163]/Programming Basics/string
+$CATEGORY: $course$/預設1062Python程式設計與應用[2163]/Programming Basics/string
+
+
+// question: 1107600  name: string operation
+
+
+// question: 0  name: Switch category to $course$/預設1062Python程式設計與應用[2163]/app- 推薦系統
+$CATEGORY: $course$/預設1062Python程式設計與應用[2163]/app- 推薦系統
+
+
+// question: 1107613  name: 推薦演算法
+
+
+// question: 0  name: Switch category to $course$/預設1062Python程式設計與應用[2163]/Programming Basics/arithmetic operation
+$CATEGORY: $course$/預設1062Python程式設計與應用[2163]/Programming Basics/arithmetic operation
+
+
+// question: 1107129  name: / and //
+::/ and //::[html]<p>請問以下程式碼執行結果何者正確</p>{
+	~%50%<p>5. / 2 輸出為 2.5</p>
+	~%-20%<p>5. // 2 輸出為 2.5</p>
+	~%50%<p>5 // 2 輸出為 2</p>
+	~%-30%<p>5 / 2 輸出為 2</p>
+}
+
+
+// question: 0  name: Switch category to $course$/預設1062Python程式設計與應用[2163]/集合資料/List
+$CATEGORY: $course$/預設1062Python程式設計與應用[2163]/集合資料/List
+
+
+// question: 1107261  name: a[-1]
+::a[-1]::[html]<pre>a \= [1,2,3]\nb \= [4,5,6]\n下述何者正確?\n</pre>{
+	~<p>a[1]+b[1]\=5</p>
+	~%50%<p>a[0]+b[1]\=6</p>
+	~%50%<p>a[-1]+b[-1]\=9</p>
+	~<p>a[2]+b[3]\=8</p>
+}
+
+
+// question: 0  name: Switch category to $course$/預設1062Python程式設計與應用[2163]/Programming Basics/Loop
+$CATEGORY: $course$/預設1062Python程式設計與應用[2163]/Programming Basics/Loop
+
+
+// question: 1098841  name: break
+::break::[html]<p>針對以下程式</p>\n<pre>for v in range(2, 11)\: \n	for i in range (2, v)\:\n		if v%i\=\=0\:\n			print (v, '不是質數') \n			break\n	else\:\n		print (v, '是質數')\n</pre>\n<p>何者正確</p>{
+	~%-25%<p>印出會包含 11是質數</p>
+	~%-25%<p>編譯錯誤，else 應與 if 對齊</p>
+	~%-25%<p>break 會跳出迴圈，所以程式只會印出 2不是質數</p>
+	~%-25%<p>break 會跳出迴圈，所以程式只會印出 4不是質數</p>
+	~%50%<p>印出包含 7是質數</p>
+	~%50%<p>印出包含 6不是質數</p>
+}
+
+
+// question: 0  name: Switch category to $course$/預設1062Python程式設計與應用[2163]/集合資料/Dictionary
+$CATEGORY: $course$/預設1062Python程式設計與應用[2163]/集合資料/Dictionary
+
+
+// question: 1098859  name: dict append
+::dict append::[html]<pre>family \= \{'dad'\:'Jack', 'mom'\:'LiLi', 'size'\:6\} \# \{key\:value\}\n\nfamily['brother'] \= 'Nick' 後，family \= ? \n</pre>{
+	=<p>\{'dad'\:'Jack', 'mom'\:'LiLi', 'size'\:6, 'brother'\:'Nick'\}</p>
+	~<p>Error</p>
+	~<p>\{'brother'\:'Nick'\}</p>
+	~<p>\{'dad'\:'Jack', 'mom'\:'LiLi', 'size'\:6\}</p>
+}
+
+
+// question: 1098860  name: dict append 2
+::dict append 2::[html]<pre>family \= \{'dad'\:'Jack', 'mom'\:'LiLi', 'size'\:6\} \# \{key\:value\}\n\nfamily['size'] \= 2 後，family \= ? \n</pre>{
+	=<p>\{'dad'\:'Jack', 'mom'\:'LiLi', 'size'\:2\}</p>
+	~<p>\{'dad'\:'Jack', 'mom'\:'LiLi', 'size'\:6, 'size'\:2\}</p>
+	~<p>\{'dad'\:'Jack', 'mom'\:'LiLi', 'size'\:(6,2)\}</p>
+	~<p>Error</p>
+}
+
+
+// question: 1098861  name: dict lambda
+::dict lambda::[html]<pre>fruits \= ['apple', 'banna', 'cherry']\nfruit_lengths \= \{fruit\:len(fruit) for fruit in fruits\}              \n\nfruit_lengths \= ?\n</pre>{
+	=<p>\{'apple'\: 5, 'banna'\: 5, 'cherry'\: 6\}</p>
+	~<p>\{'apple'\: 0, 'banna'\: 1, 'cherry'\: 2\}</p>
+	~<p>\{'0'\: 'apple', '1'\: 'banna', '2'\: 'cherry'\}</p>
+	~<p>Error</p>
+}
+
+
+// question: 1098858  name: dict.keys()
+::dict.keys()::[html]<pre>family \= \{'dad'\:'Jack', 'mom'\:'LiLi', 'size'\:6\} \# \{key\:value\}\n\n以下何種表示會回傳 'dad'\n</pre>{
+	=<p>list(family.keys())[0]</p>
+	~<p>family.keys(0)</p>
+	~<p>family.key()[0]</p>
+	~<p>family[0].key()</p>
+}
+
+
+// question: 1098857  name: dict[i]
+::dict[i]::[html]<pre>family \= \{'dad'\:'Jack', 'mom'\:'LiLi', 'size'\:6\} \# \{key\:value\}\n\nfamily[0] \= ?\n</pre>{
+	=<p>Error</p>
+	~<p>dad</p>
+	~<p>Jack</p>
+	~<p>mom</p>
+	~<p>LiLi</p>
+}
+
+
+// question: 0  name: Switch category to $course$/預設1062Python程式設計與應用[2163]/app- 推薦系統
+$CATEGORY: $course$/預設1062Python程式設計與應用[2163]/app- 推薦系統
+
+
+// question: 1107612  name: euclidean
+::euclidean::[html]<pre>def euclidean(r1, r2)\:\n    d \= 0\n    commonRatings \= False \n    for key in r1\:\n        if key in r2\:\n            d +\= math.pow(r1[key] - r2[key],2)\n            commonRatings \= True\n    d \= math.sqrt(d)        \n    if commonRatings\:\n        return d\n    else\:\n        return -1  \n    return 0\n</pre>\n<p>針對上述程式碼，以下何者為真</p>{
+	~%30%<p>r1, r2 可能是 dict 的型態</p>
+	~%30%<p>如果 r1, r2 沒有共同相同的 key 值，會回傳 -1</p>
+	~%-30%<p>若 r1 \= \{'A'\:2, 'B'\:3, 'C'\:1\}, r2 \= \{'A'\:5, 'B'\:4, 'C'\:3\} 則回傳值介於 4 與 5 之間</p>
+	~%40%<p>若 r1 \= \{'A'\:2, 'B'\:3, 'C'\:1\}, r2 \= \{'A'\:2, 'B'\:3, 'C'\:1\} (r1 與 r2 內容相同) 則回傳值為 0</p>
+}
+
+
+// question: 0  name: Switch category to $course$/預設1062Python程式設計與應用[2163]/Function
+$CATEGORY: $course$/預設1062Python程式設計與應用[2163]/Function
+
+
+// question: 1100503  name: function: *arg
+::function\: *arg::[html]<p>如果一個 function avg_height() 要計算一群人的身高，但多少人我們並不知道，因此想用變動性參數來宣告此 function, 該如何宣告？</p>{
+	=<p>avg_height(*height) </p>
+	~<p>avg_height(height[]) </p>
+	~<p>avg_height(height1, height2, height3) </p>
+	~<p>avg_height(**height) </p>
+}
+
+
+// question: 1100506  name: function: call by ref
+::function\: call by ref::[html]<pre>def comp(x, y)\:\n   x.append(10)\n   y.append(20)\n\np, q \= [10], [20]\n\ncomp(p, q)\n</pre>\n<p>執行後 p, q 的值分別為多少？</p>{
+	=<p>[10, 10], [20, 20]</p>
+	~<p>[10], [20]</p>
+}
+
+
+// question: 1100504  name: function: call by value
+::function\: call by value::[html]<pre>def comp(x, y)\:\n   x\=x-1\n   return (x, y)\np, q \= comp(10, 10)\n</pre>\n<p>執行後 p, q 的值分別為多少？</p>{
+	~<p>10, 10</p>
+	=<p>9, 10</p>
+	~<p>9, 9</p>
+}
+
+
+// question: 1100505  name: function: call by value 2
+::function\: call by value 2::[html]<pre>def comp(x, y)\:\n   x\=x-1\n   return (x, y)\n\np, q \= 10, 10\ncomp(p, q)\n</pre>\n<p>執行後 p, q 的值分別為多少？</p>{
+	=<p>10, 10</p>
+	~<p>9, 10</p>
+	~<p>9, 9</p>
+}
+
+
+// question: 1100501  name: function: concept
+::function\: concept::[html]<p>關於 function, 以下敘述何者正確</p>{
+	~%-50%<p>一定要有參數（至少一個）</p>#<p>可以沒有參數</p>
+	~%50%<p>可以達到程式碼重用的目的，簡化程式開發的複雜度</p>
+	~%-50%<p>透過關鍵字 function 來定義</p>#<p>透過 def 來定義</p>
+	~%50%<p>可以回傳值，透過 return 來回傳</p>
+}
+
+
+// question: 0  name: Switch category to $course$/預設1062Python程式設計與應用[2163]/Programming Basics/Logic
+$CATEGORY: $course$/預設1062Python程式設計與應用[2163]/Programming Basics/Logic
+
+
+// question: 1098837  name: if: indent block
+::if\: indent block::[html]<p>針對以下程式</p>\n<pre>1  g \= 98\n2  if g &gt; 90\:\n3     print ("Class A") \n4  print ("Good job")\n5  elif (g &gt; 80)\:\n6     print ("Class B") \n</pre>\n<p>以下何者正確</p>{
+	=<p>程式錯誤</p>
+	~<p>第一行若改為 g\=70, 一樣會印出</p>\n<p>Class A</p>\n<p>Good job</p>
+	~<p>印出 Class B</p>
+	~<p>印出</p>\n<p>Good job</p>\n<p>Class B</p>
+}
+
+
+// question: 0  name: Switch category to $course$/預設1062Python程式設計與應用[2163]/Function
+$CATEGORY: $course$/預設1062Python程式設計與應用[2163]/Function
+
+
+// question: 1101803  name: import
+::import::[html]<p>當我們要引用其他函式庫或模組，應該是下哪一個指令</p>{
+	=<p>import</p>
+	~<p>include</p>
+	~<p>input</p>
+	~<p>import_module</p>
+}
+
+
+// question: 0  name: Switch category to $course$/預設1062Python程式設計與應用[2163]/Programming Basics/string
+$CATEGORY: $course$/預設1062Python程式設計與應用[2163]/Programming Basics/string
+
+
+// question: 1107260  name: int + str
+::int + str::[html]<pre>a \= [12, '1', 33]\nprint(a[0]+a[1])\n下述何者正確?\n</pre>{
+	~<p>13</p>
+	~<p>121</p>
+	=<p>Error</p>
+}
+
+
+// question: 0  name: Switch category to $course$/預設1062Python程式設計與應用[2163]/集合資料/List
+$CATEGORY: $course$/預設1062Python程式設計與應用[2163]/集合資料/List
+
+
+// question: 1098845  name: int + str
+::int + str::[html]<pre>a \= [12,'1',34]\nprint (a[0]+a[1])\n</pre>\n<p>print (a[0] + a[1])</p>{
+	=<p>程式錯誤</p>
+	~<p>121</p>
+	~<p>13</p>
+	~<p>22</p>
+}
+
+
+// question: 1098481  name: list- *
+::list- *::[html]<p>['100'] * 3 會產生<br /><br /></p>\n<p> </p>{
+	~<p>程式錯誤</p>
+	=<p>['100', '100', '100']</p>
+	~<p>['300']</p>
+}
+
+
+// question: 1098482  name: List- len
+::List- len::[html]<pre>a\=['this is a apple']</pre>\n<p>則 len(a) 會傳回</p>{
+	=<p>1<br /><br /></p>
+	~<p>4<br /><br /></p>
+	~<p>3<br /><br /></p>
+	~<p>15<br /><br /></p>
+	~<p>程式錯誤</p>
+}
+
+
+// question: 0  name: Switch category to $course$/預設1062Python程式設計與應用[2163]/Programming Basics/Logic
+$CATEGORY: $course$/預設1062Python程式設計與應用[2163]/Programming Basics/Logic
+
+
+// question: 1098835  name: logic and
+::logic and::[html]<pre>1   h\=180\n2   w\=90\n3   if (h &lt; 170 and w &lt; 50)\:\n4      fail \= true\n5   else\:\n6      fail \= False\n</pre>\n<p>以下何者正確</p>{
+	=<p>第四行的 true 應該為 True</p>
+	~%-30%<p>第三行的 and 應改為 &amp;</p>
+	~%-30%<p>第五行的 else\: 應該為 else</p>
+	~%-30%<p>第六行的 False 應該為 false</p>
+	~%-10%<p>程式碼可以正確執行，執行後 fail 的值為 Fail</p>\n<p> </p>
+}
+
+
+// question: 0  name: Switch category to $course$/預設1062Python程式設計與應用[2163]/Pandas
+$CATEGORY: $course$/預設1062Python程式設計與應用[2163]/Pandas
+
+
+// question: 1106587  name: series
+::series::[html]<p>關於 Pandas 套件，以下何者正確</p>{
+	~%50%<p>Series 是儲存一為資料的 Pandas 物件</p>
+	~%-25%<p>Series 必須由 CSV 的檔案來生成物件</p>
+	~%50%<p>若沒有指定會預設以 0, 1, 2 (依此類推) 等數字作為 index</p>
+	~%-25%<p>假設 s 是 Series 物件，s.get[0] 會取得第 0 筆的資料</p>
+}
+
+
+// question: 0  name: Switch category to $course$/預設1062Python程式設計與應用[2163]/集合資料/Set
+$CATEGORY: $course$/預設1062Python程式設計與應用[2163]/集合資料/Set
+
+
+// question: 1098854  name: set basic concept
+::set basic concept::[html]<p>關於 set, 以下敘述何者正確</p>{
+	~%25%<p>裡面的元素不會重複</p>
+	~%25%<p>可以放不同形態的元素，例如 a \= \{1,'2',(4)\}  是合法的</p>
+	~%25%<p>無否透過 index 取值，例如 a\=\{1,2,3\}, a[1] 是錯誤語法</p>
+	~%25%<p>可以做集合的運算，例如聯集, 交集, 差集等</p>
+}
+
+
+// question: 1098852  name: set union
+::set union::[html]<pre>a \= \{1,2,3\}\nb \= \{3,4,5\}\nc\=a.union(b)\na\=?\n</pre>{
+	~<p>\{1,2,3,4,5\}</p>
+	=<p>\{1,2,3\}</p>
+	~<p>\{3\}</p>
+	~<p>\{1,2\}</p>
+	####<p>a.union(b) 會將連擊的結果回傳，但不會改變動到 a 或 b</p>
+}
+
+
+// question: 1098862  name: set: declare
+::set\: declare::[html]<p>以下何者是對的 Set 宣告？</p>{
+	~%50%<p>basketball \= set() </p>
+	~%30%<p>basketball \= \{"nick", "nick", "Nick", "albert"\} </p>
+	~%20%<p>baseball \= set(["nick", "john"]) </p>
+	~%-60%<p>basketball \= \{\}</p>
+}
+
+
+// question: 0  name: Switch category to $course$/預設1062Python程式設計與應用[2163]/Programming Basics/string
+$CATEGORY: $course$/預設1062Python程式設計與應用[2163]/Programming Basics/string
+
+
+// question: 1098636  name: string ''
+::string ''::[html]<pre>s \= 'I'am a student'\nprint (s)\n</pre>{
+	=<p>語法錯誤。應改為 </p>\n<pre>s \= "I'am a student"\nprint(s)\n</pre>
+	~<p>語法錯誤。應改為 </p>\n<pre>s \= 'I/'am a student'\nprint(s)\n</pre>
+	~<p>語法錯誤。應改為 </p>\n<pre>s \= "I/'am a student"\nprint(s)\n</pre>
+	~<p>將印出 </p>\n<p>I'm a student</p>
+}
+
+
+// question: 0  name: Switch category to $course$/預設1062Python程式設計與應用[2163]/集合資料/Tuple
+$CATEGORY: $course$/預設1062Python程式設計與應用[2163]/集合資料/Tuple
+
+
+// question: 1098855  name: tuple basic concept
+::tuple basic concept::[html]<p>關於 tuple, 何者是正確的</p>{
+	~%50%<p>其值無法修改</p>
+	~%25%<p>可以透過 a[i] 來取值，其中 a 是 set, i 是索引值</p>
+	~%-70%<p>可以透過 key 來取值，例如 a[key] 來取得 key 相對應的值</p>
+	~%25%<p>可以放不同型態的元素，例如 a\=(100, 'a', [12]) 是合法的</p>
+}
+
+
+// question: 1098856  name: tuple: ( )=
+::tuple\: ( )\=::[html]<pre>x\=(1,2)\n(a,b) \= 10, 20\n</pre>{
+	~%50%<p>x[0] 為 1</p>
+	~%-80%<p>a[0] 為 10</p>
+	~%30%<p>a+b 為 30</p>
+	~%20%<p>x 的型態為 tuple</p>
+}
+
+
+// question: 0  name: Switch category to $course$/預設1062Python程式設計與應用[2163]/Programming Basics/var, assignment, comment
+$CATEGORY: $course$/預設1062Python程式設計與應用[2163]/Programming Basics/var, assignment, comment
+
+
+// question: 1098635  name: var declare
+::var declare::[html]<p>int age\=12</p>{
+	=<p>語法錯誤</p>
+	~<p>宣告一個整數變數，其值為 12</p>
+	~<p>宣告一個整數常數，其值為 12 （所謂常數，表示一旦設定值後不能再修改）</p>
+}
+
+
+// question: 0  name: Switch category to $course$/預設1062Python程式設計與應用[2163]/Pandas
+$CATEGORY: $course$/預設1062Python程式設計與應用[2163]/Pandas
+
+
+// question: 1106604  name: vis- hist
+::vis- hist::[html]<pre>import pandas as pd\nimport matplotlib.pyplot as plt \# for saving fig\nimport numpy as np\nfig \= plt.figure()\n\n\# Series\ngrade \= [1,32,43,54,45,34,44,56,67,21,22,33,89,100,4,34,5,4,3,45,20,6,3,4,98,76]\n\ns \= pd.Series(grade)\ns.plot.hist()\n</pre>{
+	~<p><img src\="@@PLUGINFILE@@/f1.png" width\="385" height\="264" /></p>
+	=<p><img src\="@@PLUGINFILE@@/hist.png" width\="380" height\="252" /></p>
+	~<p><img src\="@@PLUGINFILE@@/scatter.png" width\="392" height\="266" /></p>
+	~<p><img src\="@@PLUGINFILE@@/pie.png" width\="366" height\="360" /></p>
+}
+
+
+// question: 0  name: Switch category to $course$/預設1062Python程式設計與應用[2163]/Programming Basics/var, assignment, comment
+$CATEGORY: $course$/預設1062Python程式設計與應用[2163]/Programming Basics/var, assignment, comment
+
+
+// question: 1098639  name: 註解
+::註解::[html]<p> 我們想針對以下程式做註解說明</p>\n<pre>if a&gt;100\: </pre>\n<p>以下哪些作法是對的</p>{
+	~%25%<pre>\# 如果年齡大於 100\nif a&gt;100\: \n</pre>
+	~%25%<pre>if a&gt;100\: \# 如果年齡大於 100\n</pre>
+	~%25%<pre>"""\n如果年齡大於 100\n"""\nif a&gt;100\: \n</pre>
+	~%25%<pre>'''\n如果年齡大於 100\n'''\nif a&gt;100\: \n</pre>
+	~%-50%<pre>if a&gt;100\: //如果年齡大於 100\n</pre>
+	~%-50%<pre>/*\n如果年齡大於 100\n*/\nif a&gt;100\: \n</pre>
+}
+
+
+// question: 0  name: Switch category to $course$/預設1062Python程式設計與應用[2163]/Programming Basics/Loop
+$CATEGORY: $course$/預設1062Python程式設計與應用[2163]/Programming Basics/Loop
+
+
+// question: 1098843  name: enumerate
+::enumerate::[html]<p>印出什麼？</p>\n<pre>data \= [12, 23, 34, 100, 45]\nfor i, g in enumerate(data)\:\n	if g \=\= 100\:\n		print (i)\n</pre>{
+	=%100%3#
+}
+
+
+// question: 1106629  name: for range(1,10)
+::for range(1,10)::[html]<pre>  請問下列程式碼輸出結果為何?<br />  sum\=0\n  for i in range (1, 10)\:\n    sum +\= i\n  print(sum)\n</pre>{
+	=%100%45#
+	=%0%44#
+	=%0%55#
+	=%0%54#
+	####<p>range (1, 100)<br />代表的是1加到9<br />並不是加到 10<br />故答案為 45</p>
+}
+
+
+// question: 0  name: Switch category to $course$/預設1062Python程式設計與應用[2163]/集合資料/List
+$CATEGORY: $course$/預設1062Python程式設計與應用[2163]/集合資料/List
+
+
+// question: 1098844  name: list[-1]
+::list[-1]::[html]<pre>a \= [10,20,30]\nprint (a[0]+a[1]+a[-1])\n</pre>\n<p>結果為何？</p>{
+	=%100%60#
+}
+
+
+// question: 1098846  name: list[:4]
+::list[\:4]::[html]<pre>a \= [1,2,3,4,5,6]\nprint (a[\:4])\n</pre>\n<p>結果為何？</p>{
+	=%100%[1, 2, 3, 4]#
+	=%100%[1,2,3,4]#
+	=%100%1,2,3,4#
+	=%100%1, 2, 3, 4#
+}
+
+
+// question: 0  name: Switch category to $course$/預設1062Python程式設計與應用[2163]/Pandas
+$CATEGORY: $course$/預設1062Python程式設計與應用[2163]/Pandas
+
+
+// question: 1106603  name: plot
+::plot::[html]<p><img src\="@@PLUGINFILE@@/f1.png" width\="385" height\="264" /></p>\n<p> </p>\n<pre>season \= ['Spring', 'Summer', 'Fall', 'Winter']\nquantity \= [60, 87, 75, 60]\ns \= pd.Series(quantity, index \= season)\nplt.figure()\ns.??(title\='Fruit quantity')\n</pre>\n<p>?? 為何</p>{
+	=%100%plot#
+	=%100%plot.line#
+}
+
+
+// question: 0  name: Switch category to $course$/預設1062Python程式設計與應用[2163]/Programming Basics/arithmetic operation
+$CATEGORY: $course$/預設1062Python程式設計與應用[2163]/Programming Basics/arithmetic operation
+
+
+// question: 1107262  name: range(1,10,2)
+::range(1,10,2)::[html]<pre>sum\=0\nfor i in range (1,10,2)\:\n  sum \= sum + i\nprint(sum)\n請問結果為何?\n</pre>{
+	=%100%25#
+}
+
+
+// question: 0  name: Switch category to $course$/預設1062Python程式設計與應用[2163]/Programming Basics/Loop
+$CATEGORY: $course$/預設1062Python程式設計與應用[2163]/Programming Basics/Loop
+
+
+// question: 1098839  name: range: counting
+::range\: counting::[html]<p>執行後 sum 的值為何？</p>\n<pre>sum \= 0\nfor i in range(1,10,2)\:\n	sum \= sum + i\nprint (sum)	\n</pre>{
+	=%100%25#
+}
+
+
+// question: 1098842  name: range: counting and break
+::range\: counting and break::[html]<p>執行後 sum 的值為何？</p>\n<pre>sum \= 0\nfor i in range(1,10,2)\:<br />        if i \=\= 5\:<br />             break\n	sum \= sum + i\nprint (sum)	\n</pre>{
+	=%100%4#
+}
+
+
+// question: 0  name: Switch category to $course$/預設1062Python程式設計與應用[2163]/Programming Basics/string
+$CATEGORY: $course$/預設1062Python程式設計與應用[2163]/Programming Basics/string
+
+
+// question: 1098637  name: str()
+::str()::[html]<p>若要將一個整數轉換為字串，該使用哪一個 function?</p>{
+	=%100%str#
+	=%100%str()#
+}
+
+
+// question: 1098638  name: string.format()
+::string.format()::[html]<p>以下會印出什麼？</p>\n<pre>name \= 'Nick'\nm\=100\nprint ("\{\} has \{\} dollars".format(name, m))\n</pre>{
+	=%100%Nick has 100 dollars#
+}
+
+
+// question: 0  name: Switch category to $course$/預設1062Python程式設計與應用[2163]/Programming Basics/Loop
+$CATEGORY: $course$/預設1062Python程式設計與應用[2163]/Programming Basics/Loop
+
+
+// question: 1098838  name: while: counting
+::while\: counting::[html]<p>執行後 sum 的值為多少？</p>\n<pre>count\=0\nsum\=0\nwhile (count &lt; 9)\:\n   count \= count+1\n   sum +\= 2\n</pre>{
+	=%100%18#
+}
+
+
+// question: 0  name: Switch category to $course$/預設1062Python程式設計與應用[2163]/點名
+$CATEGORY: $course$/預設1062Python程式設計與應用[2163]/點名
+
+
+// question: 1106586  name: 點528
+::點528::[html]<p>Today's topic</p>{
+	=%100%Pandas#
+	=%100%pandas#
+}
+
+
+// question: 0  name: Switch category to $course$/預設1062Python程式設計與應用[2163]/Function
+$CATEGORY: $course$/預設1062Python程式設計與應用[2163]/Function
+
+
+// question: 1100500  name: function: basic concept
+::function\: basic concept::[html]<p>function 至少需要有一個參數</p>{FALSE}
+
+
+// question: 1100502  name: function: default argu
+::function\: default argu::[html]<p>如果一個 function 有多個參數，其中有一個 default 參數，則 default 一定要放在最後</p>{TRUE}
+
+
+// question: 0  name: Switch category to $course$/預設1062Python程式設計與應用[2163]/集合資料/List
+$CATEGORY: $course$/預設1062Python程式設計與應用[2163]/集合資料/List
+
+
+// question: 1098484  name: List- format
+::List- format::[html]<p>程式 x \= [1,10] 表示 x 是介於 1, 2 中間的任何一個整數</p>{FALSE}
+
+
+// question: 1098483  name: List- type
+::List- type::[html]<p>List 內可以放不同型態的資料</p>{TRUE}
+
+
+// question: 0  name: Switch category to $course$/預設1062Python程式設計與應用[2163]/集合資料/Set
+$CATEGORY: $course$/預設1062Python程式設計與應用[2163]/集合資料/Set
+
+
+// question: 1098853  name: set: order?
+::set\: order?::[html]<p>set 內的元素沒有順序性</p>{TRUE}
+
+
