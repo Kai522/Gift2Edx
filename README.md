@@ -2,4 +2,5 @@
 Moodle GIFT format convert to Edx questions format
 
 ## 執行方式
-`python .\app.py`
+- 啟動伺服器
+  - `python .\app.py`
