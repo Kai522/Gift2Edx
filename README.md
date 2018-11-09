@@ -2,5 +2,10 @@
 Moodle GIFT format convert to Edx questions format
 
 ## 執行方式
+- pip intall
+  ```
+  Flask==0.12.2
+  Flask-Uploads==0.2.1
+  ```
 - 啟動伺服器
   - `python .\app.py`
