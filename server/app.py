@@ -21,7 +21,6 @@ patch_request_class(app)
 
 @app.route('/', methods=['GET', 'POST'])
 def index(data=None):
-	print(os.getcwd())
 	if request.method == "POST" and 'file' in request.files:
 		filename = texts.save(request.files['file'])
 		file_url = texts.url(filename)
