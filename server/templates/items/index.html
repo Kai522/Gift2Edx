@@ -11,16 +11,17 @@
     </div>
   </form>
 </div>
-<div class="row"><button class="btn btn-primary" onclick="copyToClipboard('#data')">複製文字</button></div>
+<div class="row"><button class="btn btn-primary" onclick="copyToClipboard()">複製文字</button></div>
 <br>
 <pre id="data">{{ data }}</pre>
 <script>
-function copyToClipboard(element) {
-  var $temp = $("<input>");
-  $("body").append($temp);
-  $temp.val($(element).text()).select();
+function copyToClipboard() {
+  const copyText = document.getElementById("data").textContent;
+  const textArea = document.createElement('textarea');
+  textArea.textContent = copyText;
+  document.body.append(textArea);
+  textArea.select();
   document.execCommand("copy");
-  $temp.remove();
 }
 
 </script>
