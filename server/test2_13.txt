@@ -1,0 +1,80 @@
+// question: 0  name: Switch category to $course$/Java
+$CATEGORY: $course$/Java
+
+
+// question: 1299878  name: data hiding
+::data hiding::[html]<p>What is the problem of the following code</p>\n<p><img src\="@@PLUGINFILE@@/swap.png" width\="625" height\="464" /></p>{}
+
+
+// question: 1299877  name: delegation
+::delegation::[html]<p>Rewrite the program, using <em><strong>delegation</strong></em> mechanism to replace <strong><em>inheritance</em></strong> mechanism.</p>\n<p><img src\="@@PLUGINFILE@@/delegation.png" width\="632" height\="502" /></p>\n<p>(please upload image file)</p>{}
+
+
+// question: 1299880  name: lamp
+::lamp::[html]<p>What is the problem of the code? explain how to improve it</p>\n<p><img src\="@@PLUGINFILE@@/lamp.png" width\="680" height\="511" /></p>{}
+
+
+// question: 1299892  name: abs method
+::abs method::[html]<p>Which is correct?</p>{
+	~%-50%<p>抽象類別有 1..* 個抽象方法</p>\n<p>(abstract class has 1 to many abstract method)</p>
+	~%50%<p>抽象類別有 0..* 個具體方法</p>\n<p>(abstract class can have zero to many concrete method)</p>
+	~%50%<p>具體類別不可以有任何抽象方法。</p>\n<p>(concrete class can't have any abstract method)</p>
+}
+
+
+// question: 1299893  name: best
+::best::[html]<p>我們設計了一個演算法可以找出三個參數中最棒的的一個（best(x, y, z)）。例如三個整數最棒的數就是最大的那個數。我們想要多應用這個演算法，讓他一般化、普及化到更多物件。</p>\n<p>以下何者正確？</p>\n<p>(We design an algorithm for getting the best (best(x,y,z)). For example the best of three integers are the biggest one. If we want to apply this algorithm and make it more general to other objects, which following description is correct?)</p>{
+	=<p>可以應用 interface 的技巧，讓整數等要比較的物件實作此 interface</p>\n<p>(apply the mechanism of <em>interface</em>, let integer and other comparable object implement the interface)</p>
+	~<p>只要把 x, y, z  的型態改為 Object 即可解決此問題</p>\n<p>(declare x, y, z as the type of <em>Object</em>)</p>
+	~<p>整數是一個原生型態的資料，不是類別因此無法處理。其他類別可以達到此功能。</p>\n<p>(integer is a primitive type, so we can't handle it in this case; but other class is ok)</p>
+}
+
+
+// question: 1299874  name: constructure
+::constructure::[html]<p>Which is incorrect?</p>{
+	~<p>建構子的名稱和類別名稱一樣 (the name of constructor is same as the class name)</p>
+	=<p>一個類別建構子只能有一個 (a class can have only one constructor)</p>
+	~<p>建構子不會有回傳值 (只能用 void) (a constructor can't have a return value; only void can be used)</p>
+}
+
+
+// question: 1299900  name: deploy d
+::deploy d::[html]<p>繪製循序圖時，可能需要參考其他的圖型，但以下何者不太可能需要參考：</p>\n<p>(When we draw the sequence diagram, we may reference some other diagrams; which diagram is seldom referred?)</p>{
+	~<p>使用案例圖 (use case diagram)</p>
+	~<p>類別圖 (class diagram)</p>
+	=<p>系統配置圖 (deployment diagram)</p>
+	~<p>活動圖 (activity diagram)</p>
+}
+
+
+// question: 1299876  name: inheritance
+::inheritance::[html]<p>X and Y are not primitive type, they are class type. Which are correct?</p>\n<p> </p>\n<p>class P \{<br />   private X x1;<br />   public void m1(Y y1) \{…\}<br />   public void setX(X x2) \{x1 \= x2;\}<br />   public P(X x) \{x1 \= x\}<br />\}</p>\n<p> </p>{
+	~%-10%<p>x1 是一個 P 的 static variable </p>\n<p>(x1 is a static variable)</p>
+	~%25%<p>P 是一個 mutable class </p>\n<p>(p is a mutable class)</p>
+	~%-10%<p>若 y2 是 「Y的子類別」所生成的物件， m1(y2) 將導致compiler 產生錯誤 </p>\n<p>(if y2 is an instance of the subclass of Y, m1(y2) will cause compiler error)</p>
+	~%25%<p>Y 可以是一個 interface </p>\n<p>(Y may be an interface)</p>
+	~%25%<p>Y 可以是一個 abstract class </p>\n<p>(Y may be an abstract class)</p>
+	~%-10%<p>P2 extends P implements L1, L2 是不可以的，因為在 java 中不可多重繼承(L1, L2 是介面) </p>\n<p>(if L1, L2 are interface, the statement\: P2 extends P implements L1, L2 is error since multiple inheritance is not allowed in Java)</p>
+	~%-10%<p>同上，P2 內不可以呼叫 m1 方法，因為它不是宣告為 protected </p>\n<p>(following the statement above, in P2 we can't call m1() since m1 is not declared as protected</p>
+	~%25%<p>P p \= new P(); 會導致編譯錯誤，因為預設建構子已失效。</p>\n<p>(P p \= new P() will cause compiler error since the default constructor doesn't work any more)</p>
+}
+
+
+// question: 1299879  name: ocp
+::ocp::[html]<p>關於開畢原則何者為是？(about OCP principle, what is correct)</p>{
+	~<p>檔案開啟後且使用過後一定記得關閉該檔案。(when you open a file, you have to close it)</p>
+	~<p>軟體開發專案開始時必須有規劃，結案時必須有統整分析。</p>\n<p>(you should plan for your software project, when it is closed, you should have a summary report)</p>
+	=<p>系統設計儘量允許開放擴充，避免直接修改。</p>\n<p>(when you design your system, make it easy to extend, and avoid modifying it as you can)</p>
+	~<p>一個案子必須結束後才能進行下一個案子，以求最好的效能。</p>\n<p>(You should open a new project only if you have closed a project)</p>
+}
+
+
+// question: 1299875  name: principle
+::principle::[html]<p>Which is incorrect?</p>{
+	=<p>設計應該模組化，達到低內聚力，高耦合度 (when we design a software system, the system should be modularized, to achieve the low cohesion and high coupling)</p>
+	~<p>「相依反轉」說的是，高階的物件不該相依相依於低階，應該都相依於抽象</p>\n<p>(Dependency Inversion Principle\: high level modules should not depend on the low level modules; both of them should depend on abstraction)</p>
+	~<p>LSP 告訴我們概念上的一般化，不一定都有繼承關係</p>\n<p>(Liskov Substitution Principle tells us not all generalization relationship leads to inheritance relationship)</p>
+	~<p>不重複原則，說的是資料和程式碼應該要避免重</p>\n<p>(Don't repeat yourself, means we should avoid duplication both on code and data)</p>
+}
+
+

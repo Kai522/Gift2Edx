@@ -20,14 +20,16 @@ patch_request_class(app)
 
 
 @app.route('/', methods=['GET', 'POST'])
-def index(data=None):
+def index(edx2=None,moodle=None,arr=None):
 	if request.method == "POST" and 'file' in request.files:
 		filename = texts.save(request.files['file'])
 		file_url = texts.url(filename)
-		data = gift2edx(texts.path(filename))
-		return render_template('items/index.html', data=data)
+		edx2,moodle,arr = gift2edx(texts.path(filename))
+		p="<problem>"
+		p2="</problem>"
+		return render_template('items/index.html', **locals())
 	else:
-		return render_template('items/index.html', data=data)
+		return render_template('items/index.html', **locals())
 
 
 
@@ -35,15 +37,79 @@ def gift2edx(file):
 	f = open(file,'r', encoding="utf-8")
 	lines = f.readlines()
 
+
 	#例外 生成txt
 	def show(myList):
 		for x in range(len(myList)):
-			print(x,myList[x],end="")
-
-
+			print(myList[x],end="")
 
 	for x in range(len(lines)):
-		lines[x]=re.sub(':.*.:\Dhtml\D',"",lines[x])
+		if len(lines[x])==1:
+			lines[x] = lines[x].replace("\n","")
+	lines = [e for e in lines if e]
+	#show(lines)
+
+
+	arr = list()#不符合格式之題目
+	num = list()#放刪除不符合格式之編號
+	x = 0
+	#圖片檔例外
+	while( x < (len(lines)-1)):
+		if((lines[x].find('PLUGINFILE') > -1)|(lines[x].find('img src') > -1)|(lines[x].find(' -> ') > -1)):#如果此行找到圖片檔
+			i = x #紀錄找到行 i往上找//question題號
+			while((lines[i].find('question:')==-1)):
+				i = i-1
+			
+			while((lines[i].find('}')==-1)):
+				arr.append(lines[i])
+				num.append(i)
+				i = i+1
+			arr.append(lines[i])
+			num.append(i)
+			x = i
+		x = x+1
+	#show(arr)
+
+	'''
+	for i,element in enumerate(num):
+		print(int(element),lines[element],end="\n")
+	'''
+
+	num.reverse()
+	for i,element in enumerate(num):
+		lines.pop(element)
+	#show(arr)
+
+
+	#對照moodle & edx
+	moodle = []
+	#moodle.append([])
+	x = 0
+	index = 0
+	while( x < (len(lines))):
+		if((lines[x].find('::') > -1)):#如果此行找到標頭
+			moodle.append([])
+			i = x #紀錄找到行 i往上找//question題號
+
+			while((lines[i].find('question:')==-1)):
+				i = i-1
+
+			while((lines[i].find('}')==-1)):
+				moodle[index].append(lines[i])
+				i = i+1
+
+			moodle[index].append(lines[i])
+			index = index + 1
+			x = i
+		x = x+1
+	'''for i in range(len(moodle)):
+		for j in range(len(moodle[i])):
+			print(moodle[i][j])
+	'''
+	for x in range(len(lines)):
+		#lines[x]=re.sub(':.*.:\Dhtml\D',"",lines[x])
+		lines[x]=re.sub('::.*.::',"",lines[x])
+		lines[x]=re.sub('\Dhtml\D',"",lines[x])
 		lines[x]=lines[x].replace('\=','=')
 		lines[x]=lines[x].replace('\:',':')
 		lines[x]=lines[x].replace('\{','{')
@@ -57,20 +123,23 @@ def gift2edx(file):
 		if len(lines[x])==1:
 			lines[x] = lines[x].replace("\n","")
 	lines = [e for e in lines if e]
-
-
+	'''
+	print(len(lines[71]))
+	#print(lines[71])
+	print(lines[71][0])
+	'''
 	for x in range(len(lines)):
 		if len(lines[x])==1:
 			lines[x] = lines[x].replace("\n","")
 
-	show(lines)#印出簡化過後的版本
+	#show(lines)#印出簡化過後的版本
 
 	#計算總題目數量
 	total = 0
 	for x in range(len(lines)):
-		if(lines[x][0] == '<'):
+		if((lines[x][0] == '<')|(lines[x].find('{') > -1)):
 			total= total+1
-	print('\n')
+	#print('\n')
 	#print('總題數',total)
 
 
@@ -80,7 +149,7 @@ def gift2edx(file):
 	root = etree.Element("problem")
 
 	def Multiple_choice_question(q_n,index,element,lines):
-		print (index+1,".it is a Multiple_choice_question",lines[element])
+		#print (index+1,".it is a Multiple_choice_question",lines[element])
 		q_response = etree.SubElement(root, "multiplechoiceresponse") 
 		label = etree.SubElement(q_response, "label")
 		
@@ -88,15 +157,15 @@ def gift2edx(file):
 		q_group.set("type","MultipleChoice")
 		str1 = lines[element]
 		
-		c = element
+		#c = element
 		
 		ll = lines[element]
 		str3 = ll[0:len(ll)-2]
 		str3 = str3.replace("<p>","")
 		str3 = str3.replace("</p>","")
-		str3 = (".\n"+str3)
+		#str3 = (".\n"+str3)
 		index = index+1
-		label.text = ("Q")+str(index)+str3+("<br/>")
+		label.text = str3+("<br/>")
 		
 		for i in range(1,q_n):
 			if(lines[element + i][1] == '='):
@@ -118,7 +187,7 @@ def gift2edx(file):
 				choice_F.text = str2[2:len(str2)]
 				
 	def Multiple_selection_question(q_n,index,element,lines):
-		print (index+1,".it is a Multiple_selection_question",lines[element])
+		#print (index+1,".it is a Multiple_selection_question",lines[element])
 		
 		q_response = etree.SubElement(root, "choiceresponse") 
 		label = etree.SubElement(q_response, "label")
@@ -126,15 +195,15 @@ def gift2edx(file):
 		q_group = etree.SubElement(q_response, "checkboxgroup")
 		str1 = lines[element]
 		
-		c = element
+		#c = element
 		
 		ll = lines[element]
 		str3 = ll[0:len(ll)-2]
-		str3 = (".\n"+str3)
+		#str3 = (".\n"+str3)
 		str3 = str3.replace("<p>","")
 		str3 = str3.replace("</p>","")
 		index = index+1
-		label.text = ("Q")+str(index)+str3+("<br/>")
+		label.text = str3+("<br/>")
 
 		for i in range(1,q_n):
 			if(lines[element + i][3] != '-'):
@@ -171,7 +240,7 @@ def gift2edx(file):
 				
 		
 	def Short_answer_question(q_n,index,element,lines):
-		print (index+1,".it is a Short_answer_question",lines[element])
+		#print (index+1,".it is a Short_answer_question",lines[element])
 		q_response = etree.SubElement(root, "stringresponse") 
 		label = etree.SubElement(q_response, "label")
 		
@@ -182,16 +251,16 @@ def gift2edx(file):
 		textline = etree.SubElement(q_response,"textline")
 		textline.set("size","20")
 		str1 = lines[element]
-		c = element
+		#c = element
 		ll = lines[element]
 		str3 = ll[0:len(ll)-2]
-		str3 = (".\n"+str3)
+		#str3 = (".\n"+str3)
 		str3 = str3.replace("<p>","")
 		str3 = str3.replace("</p>","")
 		index = index+1
 		#str3 = str3.replace('&amp;gt;','>')
 		#str3 = str3.replace('&amp;lt;','<')
-		label.text = ("Q")+str(index)+str3+("<br/>")
+		label.text = str3+("<br/>")
 		#label.text = label.text.replace('&amp;lt;','<')
 
 		for i in range(1,q_n):
@@ -270,8 +339,8 @@ def gift2edx(file):
 				str1 = str1.replace("<p>","")
 				str1 = str1.replace("</p>","")
 		i = i+1
-		str1 = (".\n"+ str1)
-		label.text = ("Q")+str(i)+str1+("<br/>")#放題目 需要先做處理
+		#str1 = (".\n"+ str1)
+		label.text = str1+("<br/>")#放題目 需要先做處理
 		
 
 
@@ -284,11 +353,22 @@ def gift2edx(file):
 
 	b = 0 #題目位於lines第幾格
 	numlist = [0]
+	errorlist = [0]#存有圖片檔的問題
+	errornum = []#紀錄出錯題目順序 以配對原先moodle題目
+
 	for i in range(total):
-		#print('題目編號=',i,',起始欄位:',b)#看題目位於哪個位置
+		print('題目編號=',i,',起始欄位:',b)#看題目位於哪個位置
 		if b<top-1:
 			b = collect(b,lines) #回傳下一個題目位置
 			numlist.append(b)#收集題目起始位置放入list
+	#print(numlist)
+
+	'''
+	for i,element in enumerate(numlist):
+		print(i,element)
+	'''
+
+
 
 	for index, element in enumerate(numlist):
 		
@@ -326,23 +406,89 @@ def gift2edx(file):
 
 
 	x = etree.tostring(root, encoding='unicode', method = 'xml',pretty_print=True)
+	#x = x.replace('&lt;','<')
+	#x = x.replace('&gt;','>')
+
 	x = x.replace('&amp;lt;','&lt;')
 	x = x.replace('&amp;gt;','&gt;')
+	#print(x) #全部
+	#--------找\n---------
+
+
+	#--------*寫檔---------
 
 	with open("output.txt", "w", encoding="utf-8") as output_file:
 		   output_file.write(x)
-
-
-
-
+	#--------------------
 
 	#--------*關檔---------
 	f.close()
-	output_file = open("output.txt", "r", encoding="utf-8")
-	text = output_file.read()
 	output_file.close
 	#--------------------
-	return text
+
+
+	i = 0
+	p = 0
+	j = 0#index [j][]
+	edx = list()
+	edx2 = []
+
+
+	edx = x.split('\n')
+	edx.remove('<problem>')
+	edx.remove('</problem>')
+
+	x = 0
+	edx2.append([])
+
+	while(x<len(edx)):
+		if((edx[x].find('</multiplechoiceresponse>') < 0) & (edx[x].find('</choiceresponse>')< 0)&(edx[x].find('</stringresponse>')<0)):
+					edx2[j].append(edx[x].strip())
+		else:
+			edx2[j].append(edx[x].strip())
+			edx2.append([])
+			j = j+1
+		x = x+1
+	edx2.pop()
+	'''
+
+			edx2[j].append(edx[x])
+		else:
+			edx2[j].append(edx[x])
+			edx2.append([])
+			j = j+1
+		x = x+1	
+	'''
+	for i in range(len(moodle)):
+		for j in range(len(moodle[i])):
+			moodle[i][j] = moodle[i][j].replace('\n','').strip()
+			#lines[x] = lines[x].replace("\n","")
+	#show(edx)
+
+
+	def show1(a):
+		for i in range(len(a)):
+			for j in range(len(a[i])):
+				print(i,j,a[i][j])
+
+
+	#--------edx 單題目----------
+	#print("\n\nedx單一題目\n")
+	#show1(edx2)
+	#--------moodle單一題目-------
+	#print("\n\nmoodle單一題目\n")
+	#show1(moodle)
+	#--------不符合格式之題目------
+	#print("\n\n不符合格式之題目\n")
+	#show(arr)
+	'''
+	edx2
+	moodle
+
+
+	'''
+
+	return edx2,moodle,arr
 
 if __name__ == "__main__":
     app.run(debug='on')
