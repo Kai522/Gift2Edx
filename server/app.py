@@ -4,6 +4,7 @@ from lxml import etree
 import re
 from functools import wraps
 from werkzeug import secure_filename
+from flask import send_file
 
 from flask_uploads import UploadSet, configure_uploads, TEXT,patch_request_class
 
@@ -16,17 +17,22 @@ texts = UploadSet('FILE')
 configure_uploads(app, texts)
 patch_request_class(app)
 
-
+@app.route('/download')
+def downloadFile():
+    #For windows you need to use drive name [ex: F:/Example.pdf]
+    path = "./output.xml"
+    return send_file(path, as_attachment=True)
 
 
 @app.route('/', methods=['GET', 'POST'])
-def index(edx2=None,moodle=None,arr=None):
+def index(edx2=None,moodle=None,arr=None,output=None):
 	if request.method == "POST" and 'file' in request.files:
 		filename = texts.save(request.files['file'])
 		file_url = texts.url(filename)
 		edx2,moodle,arr = gift2edx(texts.path(filename))
 		p="<problem>"
 		p2="</problem>"
+		output = True
 		return render_template('items/index.html', **locals())
 	else:
 		return render_template('items/index.html', **locals())
@@ -357,7 +363,7 @@ def gift2edx(file):
 	errornum = []#紀錄出錯題目順序 以配對原先moodle題目
 
 	for i in range(total):
-		print('題目編號=',i,',起始欄位:',b)#看題目位於哪個位置
+		# print('題目編號=',i,',起始欄位:',b)#看題目位於哪個位置
 		if b<top-1:
 			b = collect(b,lines) #回傳下一個題目位置
 			numlist.append(b)#收集題目起始位置放入list
@@ -417,7 +423,7 @@ def gift2edx(file):
 
 	#--------*寫檔---------
 
-	with open("output.txt", "w", encoding="utf-8") as output_file:
+	with open("output.xml", "w", encoding="utf-8") as output_file:
 		   output_file.write(x)
 	#--------------------
 
