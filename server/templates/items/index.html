@@ -14,7 +14,7 @@
 	<div class="row portfolio-item">
 		<div class="col-lg-6">
 			{% if output %}
-			<a href="{{ url_for('downloadFile') }}" class="btn btn-info">下載已轉換之完整EDX題目(格式XML)</a>
+			<a href="{{ url_for('downloadFile') }}" class="btn btn-info">下載已轉換之完整edX題目(格式XML)</a>
 			{% endif %} {% if arr %}
 			<a href="#arr" class="btn btn-dark">點我看格式不符之題目</a>
 			{% endif %}
@@ -29,7 +29,7 @@
 				<div class="card">
 					<div class="card-header">
 						<a class="card-link text-info" data-toggle="collapse" href=#collapseedxall>
-							#EDX完整題目
+							#edX完整題目
 						</a>
 					</div>
 					<div class="collapse" data-parent="#accordionedxall" id=collapseedxall>
@@ -51,12 +51,12 @@
 		
 		<div class="col-lg-6 mb-12 ">
 			<div id="accordionedx">
-				{% if edx2 %}<h4>EDX格式單題顯示</h4>{% for question in edx2 %}
+				{% if edx2 %}<h4>edX格式單題顯示</h4>{% for question in edx2 %}
 				
 				<div class="card">
 					<div class="card-header">
 						<a class="card-link text-info" data-toggle="collapse" href=#collapseedx{{loop.index}}>
-							#EDX題目{{loop.index}}
+							#edX格式題目{{loop.index}}
 						</a>
 					</div>
 					<div class="collapse" data-parent="#accordionedx" id=collapseedx{{loop.index}}>
@@ -78,12 +78,12 @@
 		<div class="col-lg-6 mb-12 ">
 			<div id="accordionmoodle">
 
-				{% if moodle %}<h4>Gift格式單題顯示</h4>{% for question in moodle %}
+				{% if moodle %}<h4>GIFT格式單題顯示</h4>{% for question in moodle %}
 				
 				<div class="card">
 					<div class="card-header">
 						<a class="card-link text-info" data-toggle="collapse" href=#collapsemoodle{{loop.index}}>
-							#moodle題目{{loop.index}}
+							#GIFT格式題目{{loop.index}}
 						</a>
 					</div>
 					<div class="collapse" data-parent="#accordionmoodle" id=collapsemoodle{{loop.index}}>
