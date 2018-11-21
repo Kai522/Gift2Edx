@@ -25,11 +25,11 @@ def downloadFile():
 
 
 @app.route('/', methods=['GET', 'POST'])
-def index(edx2=None,moodle=None,arr=None,output=None):
+def index(edx2=None,moodle=None,arr=None,output=None,totalStr=None):
 	if request.method == "POST" and 'file' in request.files:
 		filename = texts.save(request.files['file'])
 		file_url = texts.url(filename)
-		edx2,moodle,arr = gift2edx(texts.path(filename))
+		edx2,moodle,arr,totalStr = gift2edx(texts.path(filename))
 		p="<problem>"
 		p2="</problem>"
 		output = True
@@ -418,6 +418,7 @@ def gift2edx(file):
 	x = x.replace('&amp;lt;','&lt;')
 	x = x.replace('&amp;gt;','&gt;')
 	#print(x) #全部
+	totalStr = x 
 	#--------找\n---------
 
 
@@ -494,7 +495,7 @@ def gift2edx(file):
 
 	'''
 
-	return edx2,moodle,arr
+	return edx2,moodle,arr,totalStr
 
 if __name__ == "__main__":
     app.run(debug='on')
