@@ -9,7 +9,7 @@ from flask import send_file
 from flask_uploads import UploadSet, configure_uploads, TEXT,patch_request_class
 
 app = Flask(__name__,static_url_path='',static_folder='static')
-app.config['UPLOADED_FILE_DEST'] = os.getcwd()
+app.config['UPLOADED_FILE_DEST'] = os.getcwd()+"/upload"
 app.config['UPLOADED_FILE_ALLOW'] = TEXT
 
 
@@ -22,7 +22,7 @@ patch_request_class(app)
 @app.route('/download')
 def downloadFile():
     #For windows you need to use drive name [ex: F:/Example.pdf]
-    path = "./output.xml"
+    path = "./output/output.xml"
     return send_file(path, as_attachment=True)
 
 
@@ -426,7 +426,7 @@ def gift2edx(file):
 
 	#--------*寫檔---------
 
-	with open("output.xml", "w", encoding="utf-8") as output_file:
+	with open(".\output\output.xml", "w", encoding="utf-8") as output_file:
 		   output_file.write(x)
 	#--------------------
 
