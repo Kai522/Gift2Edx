@@ -8,7 +8,7 @@ from flask import send_file
 
 from flask_uploads import UploadSet, configure_uploads, TEXT,patch_request_class
 
-app = Flask(__name__)
+app = Flask(__name__,static_url_path='',static_folder='static')
 app.config['UPLOADED_FILE_DEST'] = os.getcwd()
 app.config['UPLOADED_FILE_ALLOW'] = TEXT
 
@@ -16,6 +16,8 @@ app.config['UPLOADED_FILE_ALLOW'] = TEXT
 texts = UploadSet('FILE')
 configure_uploads(app, texts)
 patch_request_class(app)
+
+
 
 @app.route('/download')
 def downloadFile():
