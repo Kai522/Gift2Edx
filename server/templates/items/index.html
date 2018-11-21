@@ -1,6 +1,6 @@
 {% extends 'layouts/master.html' %} {% block contain %}
 
-<div class="container" id="top">
+<div class="container" >
 
 	<form method="POST" enctype="multipart/form-data" action="/">
 		<div class="form-group">
@@ -23,6 +23,7 @@
 
 	<div class="row portfolio-item">
 		<div class="col-lg-12 mb-12 ">
+			
 			<div id="accordionedxall">
 				{% if totalStr %}
 				<div class="card">
@@ -37,7 +38,7 @@
 							<textarea id=edxall class="card-text">{{totalStr}}</textarea>
 						</div>
 						<div class="card-footer">
-							<button data-clipboard-target=#edxall class="btn btn-primary">複製題目</button>
+							<button data-clipboard-target=#edxall class="btn btn-outline-info">複製題目</button>
 						</div>
 					</div>
 				</div>
@@ -47,10 +48,11 @@
 	</div>
 
 	<div class="row portfolio-item">
-		{# EDX題目 #}
+		
 		<div class="col-lg-6 mb-12 ">
 			<div id="accordionedx">
-				{% if edx2 %} {% for question in edx2 %}
+				{% if edx2 %}<h4>EDX格式單題顯示</h4>{% for question in edx2 %}
+				
 				<div class="card">
 					<div class="card-header">
 						<a class="card-link text-info" data-toggle="collapse" href=#collapseedx{{loop.index}}>
@@ -64,7 +66,7 @@
 {% endfor %}{{p2}}</pre>
 						</div>
 						<div class="card-footer">
-							<button data-clipboard-target=#edx{{loop.index}} class="btn btn-primary">複製題目</button>
+							<button data-clipboard-target=#edx{{loop.index}} class="btn btn-outline-info">複製題目{{loop.index}}</button>
 						</div>
 					</div>
 				</div>
@@ -72,11 +74,12 @@
 			</div>
 		</div>
 
-		{# moodle題目 #}
+		
 		<div class="col-lg-6 mb-12 ">
 			<div id="accordionmoodle">
 
-				{% if moodle %} {% for question in moodle %}
+				{% if moodle %}<h4>Gift格式單題顯示</h4>{% for question in moodle %}
+				
 				<div class="card">
 					<div class="card-header">
 						<a class="card-link text-info" data-toggle="collapse" href=#collapsemoodle{{loop.index}}>
@@ -90,7 +93,7 @@
 {% endfor %}{{p2}}</pre>
 						</div>
 						<div class="card-footer">
-							<button data-clipboard-target=#moodle{{loop.index}} class="btn btn-primary">複製題目</button>
+							<button data-clipboard-target=#moodle{{loop.index}} class="btn btn-outline-info">複製題目{{loop.index}}</button>
 						</div>
 					</div>
 				</div>
