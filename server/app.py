@@ -18,6 +18,9 @@ configure_uploads(app, texts)
 patch_request_class(app)
 
 
+@app.route('/about')
+def about():
+    return render_template('items/about.html')
 
 @app.route('/download')
 def downloadFile():

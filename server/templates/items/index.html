@@ -1,7 +1,13 @@
 {% extends 'layouts/master.html' %} {% block contain %}
 
 <div class="container" >
+	<div class="row portfolio-item">
+		<div class="col-lg-6">
+			<a href="{{ url_for('about') }}" class="btn btn-info ">系統介紹</a>
+			<a href="{{ url_for('index') }}" class="btn btn-info active">轉換頁面</a>
 
+		</div>
+	</div>
 	<form method="POST" enctype="multipart/form-data" action="/">
 		<div class="form-group">
 			<input type="file" class="form-control" required id="file" name="file">
