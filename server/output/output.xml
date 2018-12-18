@@ -1,0 +1,56 @@
+<problem>
+  <choiceresponse>
+    <label>請問以下程式碼執行結果何者正確&lt;br/&gt;</label>
+    <checkboxgroup>
+      <choice correct="true">5. / 2 輸出為 2.5
+</choice>
+      <choice correct="false">5. // 2 輸出為 2.5
+</choice>
+      <choice correct="true">5 // 2 輸出為 2
+</choice>
+      <choice correct="false">5 / 2 輸出為 2
+</choice>
+    </checkboxgroup>
+  </choiceresponse>
+  <multiplechoiceresponse>
+    <label>&lt;pre&gt;family = {'dad':'Jack', 'mom':'LiLi', 'size':6}  # {key:value}&lt;br/&gt;&lt;br/&gt;family['brother'] = 'Nick' 後，family = ? &lt;br/&gt;&lt;/pre&gt;&lt;br/&gt;</label>
+    <choicegroup type="MultipleChoice">
+      <choice correct="true">{'dad':'Jack', 'mom':'LiLi', 'size':6, 'brother':'Nick'}
+</choice>
+      <choice correct="false">Error
+</choice>
+      <choice correct="false">{'brother':'Nick'}
+</choice>
+      <choice correct="false">{'dad':'Jack', 'mom':'LiLi', 'size':6}
+</choice>
+    </choicegroup>
+  </multiplechoiceresponse>
+  <multiplechoiceresponse>
+    <label>&lt;pre&gt;family = {'dad':'Jack', 'mom':'LiLi', 'size':6}  # {key:value}&lt;br/&gt;&lt;br/&gt;family[0] = ?&lt;br/&gt;&lt;/pre&gt;&lt;br/&gt;</label>
+    <choicegroup type="MultipleChoice">
+      <choice correct="true">Error
+</choice>
+      <choice correct="false">dad
+</choice>
+      <choice correct="false">Jack
+</choice>
+      <choice correct="false">mom
+</choice>
+      <choice correct="false">LiLi
+</choice>
+    </choicegroup>
+  </multiplechoiceresponse>
+  <multiplechoiceresponse>
+    <label>&lt;pre&gt;a = {1,2,3}&lt;br/&gt;b = {3,4,5}&lt;br/&gt;c=a.union(b)&lt;br/&gt;a=?&lt;br/&gt;&lt;/pre&gt;&lt;br/&gt;</label>
+    <choicegroup type="MultipleChoice">
+      <choice correct="false">{1,2,3,4,5}
+</choice>
+      <choice correct="true">{1,2,3}
+</choice>
+      <choice correct="false">{3}
+</choice>
+      <choice correct="false">{1,2}
+</choice>
+    </choicegroup>
+  </multiplechoiceresponse>
+</problem>
