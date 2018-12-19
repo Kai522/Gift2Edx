@@ -31,7 +31,7 @@ class UploadForm(FlaskForm):
         FileRequired("上傳檔案未選擇")])
     submit = SubmitField(label='進行轉換')
 
-@app.route('/about')
+#@app.route('/about')
 def about():
     return render_template('items/about.html')
 
