@@ -1,21 +1,61 @@
 {% extends 'layouts/master.html' %} {% block contain %}
 
-<div class="container" >
+<div class="container">
 	<div class="row portfolio-item">
-		<div class="col-lg-6">
-			<a href="{{ url_for('about') }}" class="btn btn-info ">系統介紹</a>
-			<a href="{{ url_for('index') }}" class="btn btn-info active">轉換頁面</a>
+		<div class="col-lg-12">
+
+			<div class="card" id="first">
+				<div class="card-header">
+					<h3 class="text-danger">注意事項
+					</h3>
+				</div>
+				<div class="card-body">
+					<h5>
+						<pre>
+1. 請使用Moodle平台匯出的題目。
+2. 上傳檔案請注意檔案類型，此系統限定為txt格式。
+3. 請注意：圖片題，需要特別匯出圖片並於OpenEdu平台匯入。
+4. 目前無法轉換題目類型如下：
+- <多選題>
+</pre>
+					</h5>
+				</div>
+
+			</div>
 
 		</div>
 	</div>
-	<form method="POST" enctype="multipart/form-data" action="/">
-		<div class="form-group">
-			<input type="file" class="form-control" required id="file" name="file">
+	<div class="card" id="first">
+		<div class="card-header">
+			<h3 class="text-success">上傳GIFT題目
+			</h3>
 		</div>
-		<div class="text-center">
-			<button type="submit" class="btn btn-default" name="action" value="Upload">送出</button>
+		<div class="card-body">
+			{% if output %}
+			<div class="alert alert-success" role="alert">
+				已成功轉換
+			</div>
+			{% endif %}
+			<form method="POST" enctype="multipart/form-data" action="/">
+
+				{% if form.text.errors %}
+				{% for error in form.text.errors %}
+				<div class="alert alert-danger" role="alert">
+					{{ error }}
+				</div>
+				{% endfor %}
+				{% endif %}
+				{{ form.hidden_tag() }}
+
+				<div class="form-group">
+					<input type="file" class="form-control" required id="text" name="text">
+				</div>
+				<div class="text-center">
+					<input type="submit" id='submit' class="btn btn-default" name="submit" value="進行轉換">
+				</div>
+			</form>
 		</div>
-	</form>
+	</div>
 
 	<div class="row portfolio-item">
 		<div class="col-lg-6">
@@ -29,7 +69,7 @@
 
 	<div class="row portfolio-item">
 		<div class="col-lg-12 mb-12 ">
-			
+
 			<div id="accordionedxall">
 				{% if totalStr %}
 				<div class="card">
@@ -54,11 +94,11 @@
 	</div>
 
 	<div class="row portfolio-item">
-		
+
 		<div class="col-lg-6 mb-12 ">
 			<div id="accordionedx">
 				{% if edx2 %}<h4>edX格式單題顯示</h4>{% for question in edx2 %}
-				
+
 				<div class="card">
 					<div class="card-header">
 						<a class="card-link text-info" data-toggle="collapse" href=#collapseedx{{loop.index}}>
@@ -80,12 +120,12 @@
 			</div>
 		</div>
 
-		
+
 		<div class="col-lg-6 mb-12 ">
 			<div id="accordionmoodle">
 
 				{% if moodle %}<h4>GIFT格式單題顯示</h4>{% for question in moodle %}
-				
+
 				<div class="card">
 					<div class="card-header">
 						<a class="card-link text-info" data-toggle="collapse" href=#collapsemoodle{{loop.index}}>
@@ -94,9 +134,9 @@
 					</div>
 					<div class="collapse" data-parent="#accordionmoodle" id=collapsemoodle{{loop.index}}>
 						<div class="card-body">
-							<pre id=moodle{{loop.index}} class="card-text">{{p}}
+							<pre id=moodle{{loop.index}} class="card-text">
 {% for ans in question %}{{ans}}
-{% endfor %}{{p2}}</pre>
+{% endfor %}</pre>
 						</div>
 						<div class="card-footer">
 							<button data-clipboard-target=#moodle{{loop.index}} class="btn btn-outline-info">複製題目{{loop.index}}</button>
@@ -115,7 +155,7 @@
 				<div class="card-header">
 					<h3 class="text-danger">格式不符之題目
 						<button data-clipboard-target=#arrcopy class="btn btn-outline-danger">複製題目</button>
-						<a href="#top"><button  class="btn btn-outline-dark">返回上層</button></a>
+						<a href="#top"><button class="btn btn-outline-dark">返回上層</button></a>
 					</h3>
 				</div>
 				<div class="card-body">

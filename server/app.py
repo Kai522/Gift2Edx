@@ -8,15 +8,28 @@ from flask import send_file
 
 from flask_uploads import UploadSet, configure_uploads, TEXT,patch_request_class
 
+
+from flask_wtf import FlaskForm
+from flask_wtf.file import FileField, FileRequired, FileAllowed
+from wtforms import SubmitField
+
+
 app = Flask(__name__,static_url_path='',static_folder='static')
 app.config['UPLOADED_FILE_DEST'] = os.getcwd()+"/upload"
 app.config['UPLOADED_FILE_ALLOW'] = TEXT
+app.config['SECRET_KEY'] = 'gift2edxfeifeicomtw'
 
 
-texts = UploadSet('FILE')
+texts = UploadSet('FILE',TEXT)
 configure_uploads(app, texts)
 patch_request_class(app)
 
+
+class UploadForm(FlaskForm):
+    text = FileField(label='上傳GIFT題目',validators=[
+        FileAllowed(texts, "只允許上傳txt檔"), 
+        FileRequired("上傳檔案未選擇")])
+    submit = SubmitField(label='進行轉換')
 
 @app.route('/about')
 def about():
@@ -31,8 +44,11 @@ def downloadFile():
 
 @app.route('/', methods=['GET', 'POST'])
 def index(edx2=None,moodle=None,arr=None,output=None,totalStr=None):
-	if request.method == "POST" and 'file' in request.files:
-		filename = texts.save(request.files['file'])
+	form = UploadForm()
+	#if request.method == "POST" and 'file' in request.files:
+	if form.validate_on_submit():
+		#filename = texts.save(request.files['file'])
+		filename = texts.save(form.text.data)
 		file_url = texts.url(filename)
 		edx2,moodle,arr,totalStr = gift2edx(texts.path(filename))
 		p="<problem>"
@@ -429,7 +445,7 @@ def gift2edx(file):
 
 	#--------*寫檔---------
 
-	with open(".\output\output.xml", "w", encoding="utf-8") as output_file:
+	with open("./output/output.xml", "w", encoding="utf-8") as output_file:
 		   output_file.write(x)
 	#--------------------
 
