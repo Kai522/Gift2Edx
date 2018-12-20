@@ -13,6 +13,19 @@ from flask_wtf import FlaskForm
 from flask_wtf.file import FileField, FileRequired, FileAllowed
 from wtforms import SubmitField
 
+import time
+import hashlib
+
+#flask_uploads.py
+# def extension(filename):
+#     ext = os.path.splitext(filename)[1]
+#     if ext == '':
+#         ext = os.path.splitext(filename)[0]
+#     if ext.startswith('.'):
+#         # os.path.splitext retains . separator
+#         ext = ext[1:]
+#     return ext
+
 
 app = Flask(__name__,static_url_path='',static_folder='static')
 app.config['UPLOADED_FILE_DEST'] = os.getcwd()+"/upload"
@@ -48,12 +61,12 @@ def index(edx2=None,moodle=None,arr=None,output=None,totalStr=None):
 	#if request.method == "POST" and 'file' in request.files:
 	if form.validate_on_submit():
 		#filename = texts.save(request.files['file'])
-		filename = texts.save(form.text.data)
+		name = hashlib.md5(('gift2edx' + str(time.time())).encode('UTF-8')).hexdigest()[:15]
+		filename = texts.save(form.text.data, name=name+'.')
 		file_url = texts.url(filename)
-		edx2,moodle,arr,totalStr = gift2edx(texts.path(filename))
+		edx2,moodle,arr,totalStr,output,blank = gift2edx(texts.path(filename))
 		p="<problem>"
 		p2="</problem>"
-		output = True
 		return render_template('items/index.html', **locals())
 	else:
 		return render_template('items/index.html', **locals())
@@ -61,8 +74,19 @@ def index(edx2=None,moodle=None,arr=None,output=None,totalStr=None):
 
 
 def gift2edx(file):
+	# 空白檔案
+	if os.stat(file).st_size == 0:
+		edx2= None
+		moodle= None
+		arr= None
+		totalStr = None
+		output = False
+		blank = True 
+		return edx2,moodle,arr,totalStr,output,blank
+
 	f = open(file,'r', encoding="utf-8")
 	lines = f.readlines()
+
 
 
 	#例外 生成txt
@@ -515,8 +539,9 @@ def gift2edx(file):
 
 
 	'''
-
-	return edx2,moodle,arr,totalStr
+	output = True
+	blank = False
+	return edx2,moodle,arr,totalStr,output,blank
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0",port=5000)

@@ -31,6 +31,12 @@
 			</h3>
 		</div>
 		<div class="card-body">
+				
+				{% if blank %}
+				<div class="alert alert-danger" role="alert">
+					上傳檔案為空白檔案或不符合格式
+				</div>
+				{% endif %}
 			{% if output %}
 			<div class="alert alert-success" role="alert">
 				已成功轉換
